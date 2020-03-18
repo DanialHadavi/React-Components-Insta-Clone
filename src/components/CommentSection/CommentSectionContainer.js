@@ -3,16 +3,15 @@ import React, { useState } from "react";
 import CommentInput from "./CommentInput";
 import Comment from "./Comment";
 import "./Comment.css";
-import dummyData from "../../../src/dummy-data.js";
 
-const CommentSection = () => {
+const CommentSection = props => {
   // Add state for the comments
-  const [comments1] = useState(dummyData);
+  const [commentsData] = useState(props.comments);
 
   return (
     <div>
       {/* map through the comments data and return the Comment component */}
-      {comments1.map(c => (
+      {commentsData.map(c => (
         <Comment props={c} />
       ))}
       <CommentInput />
